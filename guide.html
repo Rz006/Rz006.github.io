@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<title>Guide · Wheat</title>
+<meta name="description" content="A free guide from Wheat (@wheatsellz0) with animated explainers and a mini test.">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f1f0ed">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wheat">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 60; background: transparent; }
+  .progress i { display: block; height: 100%; background: var(--ink); transform-origin: left; transform: scaleX(0); }
+  .ghead { padding-block: 70px 30px; text-align: center; }
+  .ghead h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.02; font-weight: 600; margin-top: 18px; }
+  .ghead .sub { margin-inline: auto; }
+  .meta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 22px; }
+  .meta-row span { font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,.7); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-2); }
+  article { font-size: 18px; line-height: 1.75; color: var(--ink-2); }
+  article p { margin: 0 0 18px; } article b { color: var(--ink); }
+  article .intro p:first-child::first-letter { font: 400 3.4em/0.8 var(--serif); font-style: italic; float: left; margin: 8px 10px 0 0; color: var(--ink); }
+  article h2.gh { font-size: clamp(26px, 3.6vw, 34px); color: var(--ink); line-height: 1.15; font-weight: 600; margin: 56px 0 16px; }
+  article code { font: 15px var(--mono); background: rgba(17,17,18,.06); padding: 2px 7px; border-radius: 6px; color: var(--ink); }
+
+  .pick { padding: 26px; margin: 26px 0; }
+  .pick .top { display: flex; align-items: flex-start; gap: 16px; }
+  .pick .n { flex: none; width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; font: 400 26px var(--serif); font-style: italic; color: #fff;
+    background: linear-gradient(180deg, #3a3a3e, #0b0b0c); box-shadow: inset 0 1px 0 rgba(255,255,255,.3); }
+  .pick h3 { font-size: 23px; color: var(--ink); line-height: 1.2; }
+  .pick .by { font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .pick .cost { margin-left: auto; flex: none; font-size: 12px; font-weight: 700; padding: 6px 11px; border-radius: 999px; background: rgba(63,155,85,.1); color: var(--ok); white-space: nowrap; }
+  .pick .lbl { display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 18px 0 4px; }
+  .pick p { margin: 0; font-size: 17px; }
+  .pick ol { margin: 6px 0 0; padding-left: 22px; font-size: 16px; } .pick li { margin: 4px 0; }
+  .pick .pill { margin-top: 20px; white-space: normal; max-width: 100%; }
+  @media (max-width: 520px) { .pick .top { flex-wrap: wrap; } .pick .cost { margin-left: 62px; } }
+
+  .note { padding: 20px 22px; margin: 26px 0; border-radius: 18px; background: var(--night); color: #d6d6da; font-size: 16px; line-height: 1.65; box-shadow: inset 0 1px 0 rgba(255,255,255,.15); }
+  .note b { color: var(--wheat-soft); } .note code { background: rgba(255,255,255,.1); color: #fff; display: inline-block; margin-top: 6px; }
+
+  .steps { list-style: none; padding: 0; margin: 20px 0; display: grid; gap: 10px; counter-reset: s; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 40px 1fr; gap: 14px; padding: 16px 18px; }
+  .steps li::before { content: counter(s); width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 15px; background: #fff; box-shadow: inset 0 0 0 1px var(--line); color: var(--ink); }
+  .steps b { display: block; font-size: 17px; } .steps span { font-size: 15px; color: var(--muted); }
+
+  /* quiz */
+  .quiz { margin-top: 70px; }
+  .q { padding: 24px; margin-top: 16px; }
+  .q h3 { font-size: 19px; color: var(--ink); line-height: 1.35; font-weight: 600; letter-spacing: -0.02em; }
+  .q h3 small { display: block; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; font-weight: 700; }
+  .opts { display: grid; gap: 8px; margin-top: 14px; }
+  .opt { text-align: left; font: 500 16px var(--sans); color: var(--ink); padding: 13px 16px; border-radius: 14px; border: 0; cursor: pointer; background: rgba(255,255,255,.8);
+    box-shadow: inset 0 0 0 1px var(--line); transition: transform .2s var(--ease), box-shadow .2s, background .2s; }
+  .opt:hover:not(:disabled) { transform: translateX(4px); box-shadow: inset 0 0 0 1px var(--ink); }
+  .opt:disabled { cursor: default; }
+  .opt.right { background: rgba(63,155,85,.12); box-shadow: inset 0 0 0 2px var(--ok); }
+  .opt.wrong { background: rgba(196,85,63,.1); box-shadow: inset 0 0 0 2px var(--bad); }
+  .why { margin-top: 12px; font-size: 15px; color: var(--ink-2); display: none; } .why.show { display: block; animation: capIn .4s var(--ease); }
+  .score { padding: 30px; margin-top: 18px; text-align: center; display: none; }
+  .score.show { display: block; animation: capIn .5s var(--ease); }
+  .score b { display: block; font-size: 56px; letter-spacing: -0.05em; color: var(--ink); line-height: 1; }
+  .score p { margin: 10px 0 18px; }
+
+  .learn { margin-top: 70px; }
+  .yt { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; margin-top: 18px; }
+  .yt a { display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: start; padding: 16px; text-decoration: none; transition: transform .35s var(--ease); }
+  .yt a:hover { transform: translateY(-3px); }
+  .yt .ic { width: 40px; height: 28px; border-radius: 8px; background: #ff0033; display: grid; place-items: center; margin-top: 3px; }
+  .yt b { display: block; font-size: 16px; color: var(--ink); } .yt span { font-size: 14px; color: var(--muted); line-height: 1.45; display: block; }
+
+  .nextprev { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 70px; }
+  .nextprev a { padding: 20px; text-decoration: none; } .nextprev small { color: var(--muted); font-size: 13px; } .nextprev b { display: block; font-size: 16px; line-height: 1.3; margin-top: 4px; }
+  .nextprev a:last-child { text-align: right; }
+  @media (max-width: 560px) { .nextprev { grid-template-columns: 1fr; } .nextprev a:last-child { text-align: left; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#guide">Skip to content</a>
+<div class="progress" aria-hidden="true"><i id="prog"></i></div>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><img data-avatar src="assets/avatar.jpg" alt=""><span data-stat="name">Wheat</span></a>
+  <nav class="navpill glass" aria-label="Site"><a href="index.html#guides">All guides</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a></nav>
+  <a class="pill dark" href="index.html#contact">Message me</a>
+</div></header>
+
+<main class="narrow" id="guide"></main>
+
+<footer class="site"><div class="wrap">
+  <div>© <span data-year></span> Wheat · @wheatsellz0</div>
+  <div style="display:flex;gap:18px;flex-wrap:wrap"><a href="index.html#guides">All guides</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="https://www.tiktok.com/@wheatsellz0" target="_blank" rel="noopener">TikTok ↗</a></div>
+</div></footer>
+
+<script src="data/stats.js"></script>
+<script src="assets/guides.js"></script>
+<script src="assets/clip-data.js"></script>
+<script src="assets/clips.js"></script>
+<script>
+(function () {
+  const G = window.GUIDES || [], slug = new URLSearchParams(location.search).get('g');
+  const idx = Math.max(0, G.findIndex(g => g.slug === slug)), g = G[idx], root = document.getElementById('guide');
+  const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  document.title = g.title + ' · Wheat';
+  document.querySelector('meta[name=description]').setAttribute('content', g.tagline);
+  const arrow = '<svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  const block = (b) => {
+    if (b.t === 'h') return `<h2 class="gh reveal">${esc(b.text)}</h2>`;
+    if (b.t === 'p') return `<p class="reveal">${b.html}</p>`;
+    if (b.t === 'note') return `<div class="note reveal">${b.html}</div>`;
+    if (b.t === 'clip') return `<figure class="clip reveal" data-clip="${b.id}"></figure>`;
+    if (b.t === 'steps') return `<ol class="steps">${b.items.map((s, i) => `<li class="glass reveal" style="--d:${i * .06}s"><div><b>${esc(s.h)}</b><span>${esc(s.d)}</span></div></li>`).join('')}</ol>`;
+    if (b.t === 'pick') return `<div class="pick glass reveal">
+        <div class="top"><span class="n">${b.n}</span><div><h3>${esc(b.name)}</h3><div class="by">by ${esc(b.by)}</div></div><span class="cost">${esc(b.cost)}</span></div>
+        <span class="lbl">What it is</span><p>${esc(b.what)}</p>
+        <span class="lbl">Why it's worth it</span><p>${esc(b.why)}</p>
+        ${b.start ? `<span class="lbl">How to start</span><ol>${b.start.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}
+        <a class="pill dark" href="${b.url}" target="_blank" rel="noopener">${/youtube\.com/.test(b.url) ? 'Watch the tutorial' : b.name.length > 22 ? 'Open the course' : 'Open ' + esc(b.name)} ${arrow}</a>
+      </div>`;
+    return '';
+  };
+
+  const prev = G[(idx - 1 + G.length) % G.length], next = G[(idx + 1) % G.length];
+  root.innerHTML = `
+    <header class="ghead">
+      <div class="chip reveal"><span class="num">Guide ${String(idx + 1).padStart(2, '0')}</span><i></i>${esc(g.level)}</div>
+      <h1 class="reveal" style="--d:.06s">${esc(g.title)}</h1>
+      <p class="sub reveal" style="--d:.12s">${esc(g.tagline)}</p>
+      <div class="meta-row reveal" style="--d:.18s"><span>${g.minutes} min read</span><span>${g.clips.length} animated clips</span><span>5-question test</span></div>
+    </header>
+    <article>
+      <div class="intro">${g.intro.map(p => `<p class="reveal">${esc(p)}</p>`).join('')}</div>
+      ${g.blocks.map(block).join('')}
+
+      <section class="quiz" id="quiz">
+        <div class="chip reveal"><i></i>Mini test</div>
+        <h2 class="gh reveal" style="margin-top:14px">Did it <span class="serif">go in?</span></h2>
+        <p class="reveal">Five quick questions. No pressure, it's just to check.</p>
+        ${g.quiz.map((q, i) => `<div class="q glass reveal" data-q="${i}"><h3><small>Question ${i + 1} of ${g.quiz.length}</small>${esc(q.q)}</h3>
+          <div class="opts">${q.a.map((a, j) => `<button class="opt" type="button" data-j="${j}">${esc(a)}</button>`).join('')}</div>
+          <div class="why">${esc(q.why)}</div></div>`).join('')}
+        <div class="score glass" id="score"><b id="score-n"></b><p id="score-msg"></p><button class="pill dark" type="button" id="retry">Try again</button></div>
+      </section>
+
+      <section class="learn">
+        <div class="chip reveal"><i></i>Keep learning</div>
+        <h2 class="gh reveal" style="margin-top:14px">YouTube channels <span class="serif">for this topic</span></h2>
+        <div class="yt">${g.learn.map((c, i) => `<a class="glass reveal" style="--d:${(i % 3) * .06}s" href="${c.url}" target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span>
+          <div><b>${esc(c.name)}</b><span>${esc(c.why)}</span></div></a>`).join('')}</div>
+      </section>
+
+      <nav class="nextprev">
+        <a class="glass reveal" href="guide.html?g=${prev.slug}"><small>← Previous guide</small><b>${esc(prev.title)}</b></a>
+        <a class="glass reveal" href="guide.html?g=${next.slug}"><small>Next guide →</small><b>${esc(next.title)}</b></a>
+      </nav>
+    </article>`;
+
+  // Quiz
+  let answered = 0, right = 0;
+  const key = 'wheat-quiz-' + g.slug;
+  root.querySelectorAll('.q').forEach(qEl => {
+    const q = g.quiz[+qEl.dataset.q];
+    qEl.querySelectorAll('.opt').forEach(btn => btn.addEventListener('click', () => {
+      const j = +btn.dataset.j, ok = j === q.c;
+      qEl.querySelectorAll('.opt').forEach(b => { b.disabled = true; if (+b.dataset.j === q.c) b.classList.add('right'); });
+      if (!ok) btn.classList.add('wrong');
+      qEl.querySelector('.why').textContent = (ok ? 'Correct. ' : 'Not quite. ') + q.why;
+      qEl.querySelector('.why').classList.add('show');
+      answered++; if (ok) right++;
+      if (answered === g.quiz.length) showScore();
+    }));
+  });
+  function showScore() {
+    let best = right; try { best = Math.max(right, +(localStorage.getItem(key) || 0)); localStorage.setItem(key, best); } catch (e) {}
+    const msgs = ['Rough one, give the guide another skim and try again.', 'Getting there. Rewatch the clips and go again.', 'Nice, you got the main ideas.', 'Really solid. You actually get this.', 'Perfect score. Go build something with it.'];
+    document.getElementById('score-n').textContent = `${right} / ${g.quiz.length}`;
+    document.getElementById('score-msg').textContent = msgs[Math.min(4, Math.floor(right * 4 / g.quiz.length))] + (best > right ? ` (Best: ${best}/${g.quiz.length})` : '');
+    document.getElementById('score').classList.add('show');
+    document.getElementById('score').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  document.getElementById('retry').addEventListener('click', () => {
+    answered = 0; right = 0;
+    root.querySelectorAll('.opt').forEach(b => { b.disabled = false; b.classList.remove('right', 'wrong'); });
+    root.querySelectorAll('.why').forEach(w => w.classList.remove('show'));
+    document.getElementById('score').classList.remove('show');
+    document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Reading progress
+  const bar = document.getElementById('prog');
+  const onScroll = () => { const h = document.documentElement; bar.style.transform = `scaleX(${Math.min(1, h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight))})`; };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  window.WheatClips.mountAll(root);
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

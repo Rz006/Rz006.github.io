@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Sitemap line is added by scripts/make-sitemap.js once the site has its address.

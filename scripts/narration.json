@@ -1,0 +1,92 @@
+{
+  "ml-learns": {
+    "scene": "neuralNet",
+    "title": "How a model actually learns",
+    "text": "Okay, here's machine learning in one go. You show a model loads of examples, it makes a guess, and you measure how wrong it was. That number is called the loss. Then it nudges its weights a tiny bit so it's less wrong next time, and it does that again, thousands of times. That's honestly it."
+  },
+  "agent-loop": {
+    "scene": "agentLoop",
+    "title": "What an AI agent really is",
+    "text": "An AI agent is just a language model running in a loop. It thinks about the goal, picks a tool, like a web search or some code, and then looks at what came back. If it's not done yet, it goes round again. Once it has enough, it gives you the answer. The loop is what makes it an agent."
+  },
+  "bubble-sort": {
+    "scene": "sorting",
+    "title": "Watch a sorting algorithm think",
+    "text": "This is bubble sort. It walks through the list, compares two neighbours, and swaps them if they're in the wrong order, so the big values bubble to the end. It's simple, but it's slow. With n items it can take around n squared comparisons. Seeing that happen is exactly why VisuAlgo makes algorithms click."
+  },
+  "git-branch": {
+    "scene": "gitBranch",
+    "title": "Git branches, without the confusion",
+    "text": "Think of git like save points. Every commit is a snapshot of your project. A branch is just a separate line of save points, so you can try something without breaking main. When the feature works, you merge it back, and the two histories join up. Learn Git Branching shows this tree changing live as you type."
+  },
+  "convolution": {
+    "scene": "convolution",
+    "title": "What a convolution does to an image",
+    "text": "Here's what a convolution does. A tiny grid of numbers, called a kernel, slides across the image. At each spot it multiplies the pixels underneath and adds them up, then writes one number into a new map. This kernel lights up wherever the brightness suddenly changes, so it's finding edges. Stack lots of these and you've got a CNN."
+  },
+  "next-token": {
+    "scene": "nextToken",
+    "title": "How ChatGPT picks the next word",
+    "text": "Every chatbot is really doing one thing over and over: guessing the next word. It splits your text into tokens, uses attention to work out which earlier words matter most, then gives every possible next token a probability. It picks one, adds it on, and repeats. Transformer Explainer lets you watch that happen live."
+  },
+  "shell-basics": {
+    "scene": "terminal",
+    "title": "The terminal in 30 seconds",
+    "lines": ["$ pwd", "/home/wheat/projects", "$ ls", "notes.md   site   guides", "$ cd site", "$ git status", "On branch main, nothing to commit", "$ grep -rn \"TODO\" .", "./index.html:42: <!-- TODO: add guides -->"],
+    "text": "Most CS classes just assume you know your tools, and the terminal is the big one. pwd tells you where you are, ls shows what's in the folder, cd moves you around, and grep can search through every file in seconds. Once this feels normal, everything else gets faster. That's exactly what Missing Semester teaches."
+  },
+  "two-pointers": {
+    "scene": "twoPointers",
+    "title": "Two pointers: an interview pattern",
+    "text": "This is a classic interview pattern called two pointers. The list is sorted, and we want two numbers that add up to fourteen. Put one pointer at each end. Sum too big? Move the right one in. Too small? Move the left one up. You find the answer in one pass instead of checking every pair. NeetCode teaches problems as patterns like this."
+  },
+  "fullstack-path": {
+    "scene": "learningPath",
+    "title": "The Full Stack Open path",
+    "steps": ["How the web works", "React", "Node + Express", "Databases", "TypeScript", "Deploy"],
+    "text": "Full Stack Open is basically one long path. You start with how the web works, then React for the front end, then a Node server, then a database, and later TypeScript and getting it deployed. Each part builds on the one before, so go in order and do the exercises, and you'll have built a real app by the end."
+  },
+  "system-design": {
+    "scene": "systemDesign",
+    "title": "How big apps handle millions of users",
+    "text": "So here's how big apps survive millions of people at once. Every request hits a load balancer first, which spreads them across lots of servers so none of them get overwhelmed. Popular data sits in a cache, because memory is way faster than the database. The System Design Primer walks you through every one of these pieces."
+  },
+  "ossu-path": {
+    "scene": "learningPath",
+    "title": "The OSSU degree, step by step",
+    "steps": ["Intro CS", "Core programming", "Core math", "Core systems", "Core theory", "Final project"],
+    "text": "OSSU is a whole computer science degree, laid out as a checklist of free courses. You start with intro CS, then core programming and the maths, then systems like operating systems and networks, then theory, and you finish with your own project. Go at your own pace. Nobody's grading you, so the projects are what really count."
+  },
+  "llm-steps": {
+    "scene": "learningPath",
+    "title": "Building an LLM, one step at a time",
+    "steps": ["Tokenizer", "Embeddings", "Attention", "Transformer blocks", "Pretraining", "Fine-tuning"],
+    "text": "Building an LLM from scratch sounds impossible, but it's really a list of steps. First you turn text into tokens, then tokens into vectors, then you add attention so words can look at each other. Stack that into transformer blocks, train it on loads of text, then fine-tune it. LLMs from scratch takes you through every one in PyTorch."
+  },
+  "embeddings": {
+    "scene": "embeddings",
+    "title": "Embeddings: how AI understands meaning",
+    "text": "Embeddings are how AI understands meaning. Every book description gets turned into a list of numbers, basically a point in space, and books about similar things end up close together. So when someone asks for a cosy fantasy story, you turn that into a point too, and just grab the nearest books. That's the whole book recommender."
+  },
+  "rag-pipeline": {
+    "scene": "rag",
+    "title": "RAG, explained simply",
+    "text": "RAG stands for retrieval augmented generation. Sounds scary, but it's simple. Your question gets turned into an embedding, you search your own documents for the closest chunks, and you paste those chunks into the prompt. Now the model answers from your data instead of guessing. That's how every chat with your PDF app works."
+  },
+  "fine-tune": {
+    "scene": "neuralNet",
+    "title": "What fine-tuning really means",
+    "text": "Fine-tuning means taking a model that already understands language, and training it a little more on your own examples. You're not starting from zero, you're just nudging its weights towards your task. With a small model and a few hundred good examples, it can get really good at one specific job."
+  },
+  "skills-install": {
+    "scene": "terminal",
+    "title": "Installing the skills",
+    "lines": ["> /plugin marketplace add anthropics/skills", "Marketplace added", "> /plugin install example-skills@anthropic-agent-skills", "Plugin installed", "> use the frontend-design skill on my landing page"],
+    "text": "Installing these takes about thirty seconds. Inside Claude Code, add Anthropic's skills marketplace, then install the example skills plugin, which gives you all three at once. After that there's no special command. You just ask Claude to use the skill, and it loads it when it needs it."
+  },
+  "theme-swap": {
+    "scene": "themeSwap",
+    "title": "Theme factory in action",
+    "text": "This is what theme factory does. You pick one of its ten themes, and you get a matching set of colours and fonts. Apply it, and your slides, docs and pages all match each other straight away. No more guessing hex codes at two in the morning."
+  }
+}

@@ -1,0 +1,1 @@
+window.WHEAT_STATS = {"handle":"wheatsellz0","name":"Wheat","bio":"Just a guy tryna make bread with AI.\n\nwebsite dropping Soon!!","followers":945,"following":4,"likes":504,"videos":10,"updated":"2026-10-11T11:51:34.723Z"};

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<title>Wheat · learn AI the simple way</title>
+<meta name="description" content="Free AI and computer science guides from Wheat (@wheatsellz0), with animated explainers and mini tests. About me, promos and how to get in touch.">
+<meta property="og:title" content="Wheat · learn AI the simple way">
+<meta property="og:description" content="Free AI & CS guides with animated explainers and mini tests.">
+<meta property="og:image" content="assets/og.png">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f1f0ed">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wheat">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  /* ---------- hero ---------- */
+  .hero { position: relative; min-height: min(860px, 100svh); display: grid; place-items: center; text-align: center; padding-block: 40px 90px; isolation: isolate; }
+  .orb { position: absolute; z-index: -1; width: min(620px, 92vw); aspect-ratio: 1; left: 50%; top: 46%; translate: -50% -50%; filter: blur(26px); opacity: .75;
+    animation: spin 26s linear infinite; }
+  .orb::before { content: ''; position: absolute; inset: 8%; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff 0 18%, transparent 45%), conic-gradient(from 40deg, #cfcfd3, #8d8d93, #f4f4f6, #a7a7ad, #e6e6e9, #77777d, #cfcfd3);
+    transform: rotateX(62deg) rotateZ(18deg); box-shadow: 0 40px 80px rgba(0,0,0,.25); }
+  .orb::after { content: ''; position: absolute; inset: 30%; border-radius: 50%; background: var(--paper); transform: rotateX(62deg) rotateZ(18deg); filter: blur(10px); }
+  @keyframes spin { to { rotate: 360deg; } }
+  .hero h1 { font-size: clamp(48px, 9vw, 112px); line-height: .95; font-weight: 600; letter-spacing: -0.055em; }
+  .hero h1 .serif { font-size: 1.08em; letter-spacing: -0.02em; }
+  .hero .sub { margin-inline: auto; text-align: center; }
+  .hero .ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+  .float { position: absolute; padding: 16px 18px; text-align: left; width: 220px; animation: bob 7s ease-in-out infinite; }
+  .float b { display: block; font-size: 15px; letter-spacing: -0.02em; }
+  .float span { font-size: 13px; color: var(--muted); }
+  .float .ic { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: #fff; box-shadow: 0 0 0 1px var(--line); margin-bottom: 12px; }
+  .f1 { left: 2%; top: 22%; animation-delay: -2s; } .f2 { right: 2%; top: 30%; } .f3 { left: 7%; bottom: 10%; animation-delay: -4s; } .f4 { right: 6%; bottom: 14%; animation-delay: -1s; }
+  @keyframes bob { 50% { transform: translateY(-12px); } }
+  @media (max-width: 980px) { .float { display: none; } }
+  .scrollcue { position: absolute; bottom: 26px; left: 50%; translate: -50% 0; font-size: 12px; color: var(--muted); letter-spacing: .12em; text-transform: uppercase; }
+
+  /* ---------- live profile card ---------- */
+  .profile { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; padding: 22px; margin-top: -40px; }
+  .profile .pfp { width: 96px; height: 96px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 4px #fff, 0 12px 30px rgba(0,0,0,.12); object-fit: cover; }
+  .profile h3 { font-size: 24px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+  .profile h3 small { font-size: 15px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+  .stats { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 8px; font-size: 15px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .stats b { color: var(--ink); font-size: 18px; margin-right: 5px; }
+  .profile .bio { margin: 6px 0 0; color: var(--ink-2); }
+  .live { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 12px; color: var(--muted); }
+  .live::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #3fbf5f; box-shadow: 0 0 0 4px rgba(63,191,95,.18); animation: pulse 2s infinite; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 7px rgba(63,191,95,.05); } }
+  @media (max-width: 520px) { .profile { grid-template-columns: 1fr; text-align: center; justify-items: center; } .stats { justify-content: center; } }
+
+  section { padding-block: 110px 20px; scroll-margin-top: 70px; }
+  .head { text-align: center; } .head .sub { margin-inline: auto; }
+
+  /* ---------- guides ---------- */
+  .guides { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; margin-top: 44px; }
+  .gcard { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 24px; text-decoration: none; min-height: 250px; transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+  .gcard:hover { transform: translateY(-6px); box-shadow: inset 0 0 0 1px var(--glass-line), 0 30px 70px rgba(20,20,25,.14); }
+  .gcard .no { font: 400 46px/1 var(--serif); font-style: italic; color: var(--wheat); }
+  .gcard h3 { font-size: 21px; line-height: 1.2; font-weight: 600; }
+  .gcard p { margin: 0; color: var(--muted); font-size: 15px; }
+  .gcard .meta { margin-top: auto; display: flex; flex-wrap: wrap; gap: 6px; }
+  .gcard .meta span { font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px; background: rgba(255,255,255,.75); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-2); }
+  .gcard .go { position: absolute; top: 22px; right: 22px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; color: #fff;
+    background: linear-gradient(180deg, #3a3a3e, #0b0b0c); box-shadow: inset 0 1px 0 rgba(255,255,255,.3); transition: transform .5s var(--ease); }
+  .gcard:hover .go { transform: rotate(-45deg); }
+
+  .how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
+  .how div { padding: 18px; } .how b { display: block; } .how span { color: var(--muted); font-size: 14px; }
+  @media (max-width: 720px) { .how { grid-template-columns: 1fr; } }
+
+  /* ---------- dark band: about + promos ---------- */
+  .night { background: radial-gradient(ellipse 70% 50% at 50% 0%, #1d1d21, var(--night) 70%); color: #f2f2f0; border-radius: 40px; margin: 110px 12px 0; padding-block: 100px 110px; position: relative; overflow: hidden; }
+  .night section { padding-top: 0; }
+  .night .chip { background: rgba(255,255,255,.08); color: #d9d9dc; box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); } .night .chip i { background: var(--wheat-soft); }
+  .night .sub, .night p { color: #a9a9af; }
+  .about { display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: center; }
+  .about p { font-size: 19px; line-height: 1.6; } .about p b { color: #fff; font-weight: 600; }
+  .slab { padding: 30px; text-align: center; }
+  .slab img { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 16px; background: #fff; box-shadow: 0 0 0 5px rgba(255,255,255,.12); object-fit: cover; }
+  .slab .q { font: 400 26px/1.25 var(--serif); font-style: italic; color: #fff; }
+  @media (max-width: 860px) { .about { grid-template-columns: 1fr; } }
+  .numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
+  .numbers div { padding: 24px; }
+  .numbers b { display: block; font-size: clamp(34px, 5vw, 52px); font-weight: 600; letter-spacing: -0.04em; color: #fff; font-variant-numeric: tabular-nums; }
+  .numbers span { color: #a9a9af; font-size: 14px; }
+  .offers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+  .offers div { padding: 26px; } .offers h3 { font-size: 20px; color: #fff; } .offers p { font-size: 15px; margin: 8px 0 0; }
+  .offers .tag { display: inline-block; font-size: 12px; font-weight: 600; color: var(--wheat-soft); margin-bottom: 12px; }
+  @media (max-width: 760px) { .numbers, .offers { grid-template-columns: 1fr; } }
+
+  /* ---------- contact ---------- */
+  form { display: grid; gap: 16px; padding: 28px; margin-top: 40px; text-align: left; }
+  label { display: grid; gap: 7px; font-size: 14px; font-weight: 600; }
+  label small { font-weight: 400; color: var(--muted); }
+  input, textarea, select { width: 100%; font: 16px var(--sans); color: var(--ink); background: rgba(255,255,255,.8); border: 0; box-shadow: inset 0 0 0 1px var(--line); border-radius: 14px; padding: 14px 16px; transition: box-shadow .25s; }
+  input:focus, textarea:focus, select:focus { outline: 0; box-shadow: inset 0 0 0 2px var(--ink); }
+  textarea { min-height: 150px; resize: vertical; }
+  .at { position: relative; } .at input { padding-left: 34px; } .at::after { content: '@'; position: absolute; left: 16px; bottom: 14px; color: var(--muted); }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 560px) { .row2 { grid-template-columns: 1fr; } }
+  .status { min-height: 1.4em; font-size: 14px; color: var(--muted); } .status.ok { color: var(--ok); } .status.err { color: var(--bad); }
+  .hp { position: absolute; left: -9999px; }
+  form .pill { justify-self: start; }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#guides">Skip to content</a>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="#top"><img data-avatar src="assets/avatar.jpg" alt=""><span data-stat="name">Wheat</span></a>
+  <nav class="navpill glass" aria-label="Sections"><a href="#guides">Guides</a><a href="#about">About</a><a href="#promos">Promos</a><a href="#contact">Contact</a></nav>
+  <a class="pill dark" href="#contact">Message me</a>
+</div></header>
+
+<main id="top">
+  <div class="hero wrap">
+    <div class="orb" aria-hidden="true"></div>
+    <div class="float f1 glass" aria-hidden="true"><div class="ic">▶</div><b>Animated explainers</b><span>Short clips that make it click</span></div>
+    <div class="float f2 glass" aria-hidden="true"><div class="ic">✓</div><b>Mini test every guide</b><span>Check it actually went in</span></div>
+    <div class="float f3 glass" aria-hidden="true"><div class="ic">★</div><b>100% free</b><span>No paywalls, ever</span></div>
+    <div class="float f4 glass" aria-hidden="true"><div class="ic">↗</div><b><span data-stat="followers" style="color:inherit;font-size:inherit">945</span> on TikTok</b><span>New guides added regularly</span></div>
+    <div>
+      <div class="chip reveal"><i></i>Free AI &amp; computer science guides</div>
+      <h1 class="reveal" style="--d:.08s;margin-top:22px">Learn AI the<br><span class="serif">simple</span> way.</h1>
+      <p class="sub reveal" style="--d:.16s">Guides with animated explainers, plain-English walkthroughs and a quick test at the end. Just a guy tryna make bread with AI, sharing what actually works.</p>
+      <div class="ctas reveal" style="--d:.24s">
+        <a class="pill dark" href="#guides">Start a free guide <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="pill glass" href="#promos">Work with me</a>
+      </div>
+    </div>
+    <div class="scrollcue" aria-hidden="true">scroll</div>
+  </div>
+
+  <div class="narrow">
+    <div class="profile glass reveal">
+      <img class="pfp" data-avatar src="assets/avatar.jpg" alt="Wheat's TikTok profile picture">
+      <div>
+        <h3><span data-stat="name">Wheat</span> <small>@<span data-stat="handle">wheatsellz0</span></small></h3>
+        <div class="stats"><span><b data-stat="followers">945</b>followers</span><span><b data-stat="likes">504</b>likes</span><span><b data-stat="videos">10</b>videos</span></div>
+        <p class="bio" data-stat="bio">Just a guy tryna make bread with AI.</p>
+        <a class="live" data-updated href="https://www.tiktok.com/@wheatsellz0" target="_blank" rel="noopener">Live from TikTok</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="guides" class="wrap">
+    <div class="head">
+      <div class="chip reveal"><span class="num">001</span><i></i>Free guides</div>
+      <h2 class="h2 reveal">Everything I post,<br><span class="serif">explained properly</span></h2>
+      <p class="sub reveal">Every slideshow turns into a full guide here, with the links, the ideas behind them, animated clips and a mini test.</p>
+    </div>
+    <div class="how">
+      <div class="glass reveal"><b>1. Read it like a chat</b><span>Plain English, no jargon walls.</span></div>
+      <div class="glass reveal" style="--d:.08s"><b>2. Watch the clips</b><span>Short animated explainers with voiceover.</span></div>
+      <div class="glass reveal" style="--d:.16s"><b>3. Take the test</b><span>Five questions to lock it in.</span></div>
+    </div>
+    <div class="guides" id="guide-list"></div>
+  </section>
+
+  <div class="night">
+    <section id="about" class="wrap">
+      <div class="about">
+        <div>
+          <div class="chip reveal"><span class="num">002</span><i></i>About me</div>
+          <h2 class="h2 reveal">Hey, I'm <span class="serif">Wheat</span>.</h2>
+          <p class="reveal">I'm learning AI and computer science in public, and sharing what actually works along the way. Most people don't realise how simple AI really is once someone shows them the right resources, <b>in the right order</b>.</p>
+          <p class="reveal">So my goal's simple: <b>help you learn faster and build smarter, for free.</b></p>
+        </div>
+        <div class="slab glass-dark reveal" style="--d:.1s">
+          <img data-avatar src="assets/avatar.jpg" alt="">
+          <div class="q">"Just a guy tryna make bread with AI."</div>
+          <p style="margin:12px 0 0;font-size:14px">@wheatsellz0</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="promos" class="wrap" style="padding-top:110px">
+      <div class="chip reveal"><span class="num">003</span><i></i>Promos</div>
+      <h2 class="h2 reveal">Work <span class="serif">with</span> me</h2>
+      <p class="sub reveal">I partner with AI tools, courses and dev products my audience will genuinely use. Numbers below update daily from TikTok, and sponsored posts are always clearly labelled.</p>
+      <div class="numbers">
+        <div class="glass-dark reveal"><b data-stat="followers">945</b><span>followers</span></div>
+        <div class="glass-dark reveal" style="--d:.08s"><b data-stat="likes">504</b><span>likes</span></div>
+        <div class="glass-dark reveal" style="--d:.16s"><b data-stat="videos">10</b><span>videos</span></div>
+      </div>
+      <div class="offers">
+        <div class="glass-dark reveal"><span class="tag">Slideshow</span><h3>Feature spot</h3><p>Your product as one of the picks in a themed slideshow, with a real screenshot and an honest write-up.</p></div>
+        <div class="glass-dark reveal" style="--d:.08s"><span class="tag">Video</span><h3>Dedicated video</h3><p>A full animated explainer about your product, with voiceover and captions.</p></div>
+        <div class="glass-dark reveal" style="--d:.16s"><span class="tag">Guide</span><h3>Guide + bio link</h3><p>A spot inside the matching guide on this site, linked from my TikTok bio.</p></div>
+      </div>
+      <div style="margin-top:28px" class="reveal"><a class="pill dark" href="#contact" style="background:linear-gradient(180deg,#f3d48e,#d9a441);color:#1a1408">Send a promo enquiry</a></div>
+    </section>
+  </div>
+
+  <section id="contact" class="narrow">
+    <div class="head">
+      <div class="chip reveal"><span class="num">004</span><i></i>Contact</div>
+      <h2 class="h2 reveal">Send me a <span class="serif">message</span></h2>
+      <p class="sub reveal">Promo, collab or a question about a guide. It comes straight to me, and only I can read it.</p>
+    </div>
+    <form id="contact-form" class="glass reveal" novalidate>
+      <div class="row2">
+        <label class="at">Your TikTok<input id="tiktok" name="tiktok" placeholder="yourhandle" autocomplete="off" required maxlength="40"></label>
+        <label>What's it about?
+          <select id="topic" name="topic"><option>Promo / sponsorship</option><option>Collab</option><option>Question about a guide</option><option>Something else</option></select>
+        </label>
+      </div>
+      <label>Email <small>(optional, if you'd like a reply there)</small><input id="email" name="email" type="email" placeholder="you@example.com" maxlength="120"></label>
+      <label>Message<textarea id="message" name="message" placeholder="Hey Wheat, …" required maxlength="2000"></textarea></label>
+      <input class="hp" type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true">
+      <button type="submit" class="pill dark" id="send">Send message</button>
+      <div class="status" id="status" role="status"></div>
+      <p style="margin:0;font-size:13px;color:var(--muted)">By sending, you agree I can use these details to reply to you, nothing else (see the <a href="privacy.html">privacy policy</a>). Under 13? Ask a parent first.</p>
+    </form>
+  </section>
+</main>
+
+<footer class="site"><div class="wrap">
+  <div>© <span data-year></span> Wheat · @wheatsellz0</div>
+  <div style="display:flex;gap:18px;flex-wrap:wrap"><a href="#guides">Guides</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="#contact">Contact</a><a href="https://www.tiktok.com/@wheatsellz0" target="_blank" rel="noopener">TikTok ↗</a></div>
+</div></footer>
+
+<script src="data/stats.js"></script>
+<script src="assets/guides.js"></script>
+<script>
+  // Guide cards, built from assets/guides.js
+  const list = document.getElementById('guide-list');
+  (window.GUIDES || []).forEach((g, i) => {
+    const a = document.createElement('a');
+    a.className = 'gcard glass reveal'; a.style.setProperty('--d', (i % 3) * 0.08 + 's');
+    a.href = 'guide.html?g=' + g.slug;
+    a.innerHTML = `<span class="no">${String(i + 1).padStart(2, '0')}</span><h3>${g.title}</h3><p>${g.tagline}</p>
+      <div class="meta"><span>${g.minutes} min</span><span>${g.clips.length} animated clips</span><span>Mini test</span></div>
+      <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`;
+    list.appendChild(a);
+  });
+</script>
+<script src="assets/site.js"></script>
+<script>
+  // Contact box: messages are emailed to Wheat through Web3Forms, so only Wheat can read them.
+  // Paste your free access key from https://web3forms.com between the quotes:
+  const WEB3FORMS_KEY = '79f9268f-8309-4ce5-b389-b21ce19033ad';
+  const form = document.getElementById('contact-form'), status = document.getElementById('status'), send = document.getElementById('send');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const tiktok = form.tiktok.value.trim().replace(/^@/, ''), message = form.message.value.trim();
+    status.className = 'status';
+    if (!/^[A-Za-z0-9._]{2,24}$/.test(tiktok)) { status.className = 'status err'; status.textContent = 'Add your TikTok username, without spaces.'; return form.tiktok.focus(); }
+    if (message.length < 5) { status.className = 'status err'; status.textContent = 'Write a message first.'; return form.message.focus(); }
+    if (!WEB3FORMS_KEY) { status.className = 'status err'; status.textContent = 'The message box isn’t connected yet, so this wasn’t sent.'; return; }
+    send.disabled = true; status.textContent = 'Sending…';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject: `New ${form.topic.value} message from @${tiktok}`, from_name: `@${tiktok} (TikTok)`,
+          tiktok: `@${tiktok}  ·  https://www.tiktok.com/@${tiktok}`, topic: form.topic.value, email: form.email.value.trim() || 'not given', message, botcheck: form.botcheck.checked }),
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message);
+      form.reset(); status.className = 'status ok'; status.textContent = 'Sent! I read every message.';
+    } catch (err) { status.className = 'status err'; status.textContent = 'That didn’t send. Try again in a minute, or DM me on TikTok.'; }
+    finally { send.disabled = false; }
+  });
+</script>
+</body>
+</html>
